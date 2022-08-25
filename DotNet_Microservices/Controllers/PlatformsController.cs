@@ -48,7 +48,7 @@ namespace DotNet_Microservices.Controllers
             _repository.SaveChanges();
 
             PlatformReadDto platformReadDto = _mapper.Map<PlatformReadDto>(newPlatform);
-            return Ok(nameof(GetPlatformsById), new { Id = platformReadDto.Id}, platformReadDto); 
+            return CreatedAtRoute(nameof(GetPlatformsById), new { Id = platformReadDto.Id}, platformReadDto); 
         }
     }
 }
